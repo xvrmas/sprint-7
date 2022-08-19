@@ -13,7 +13,7 @@
       <b-form-checkbox id="check3" v-model="selected" :value="200"
         >Una campanya de Google Ads (200 €)</b-form-checkbox
       >
-      <div>
+      <div><br>
         <h5>Preu:{{ resultat }} €</h5>
       </div>
     </div>
