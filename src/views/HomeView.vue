@@ -37,9 +37,6 @@ export default {
     totalSuma(value) {
       this.resultat = value;
     },
-    visible() {
-      alert("checkbox esta seleccionado");
-    },
   },
 };
 </script>
