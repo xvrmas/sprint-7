@@ -1,5 +1,4 @@
 <template>
-  <!-- <div> -->
   <div v-if="condition">
     <div class="carta">
       Número de paginas <input type="number" v-model="sumaTotal1" /><br /><br />
@@ -10,13 +9,14 @@
 <script>
 export default {
   name: "Panell",
-  props: ["selected","flotant"],
+  props: ["selected"],
   data() {
     return {
       sumaTotal1: 0,
       sumaTotal2: 0,
       paginesIdiomes: 0,
-      condition: false,
+      condition:false
+
     };
   },
 
@@ -37,7 +37,7 @@ export default {
       this.total = 0;
       for (let item of this.selected) {
         this.total = this.total + item;
-        // this.condition=true
+        this.condition=true
       }
       return this.total + this.paginesIdiomes;
     },

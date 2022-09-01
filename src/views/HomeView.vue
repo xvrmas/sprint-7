@@ -5,7 +5,7 @@
       <b-form-checkbox id="check1" v-model="selected" :value="500"
         >Una pàgina web (500 €)</b-form-checkbox
       >
-      <panell :selected="selected" :flotant="panellFlotant" @resultat="totalSuma"></panell>
+      <panell :selected="selected" @resultat="totalSuma"></panell>
 
       <b-form-checkbox id="check2" v-model="selected" :value="300"
         >Una consultoria SEO (300 €)</b-form-checkbox
@@ -13,7 +13,8 @@
       <b-form-checkbox id="check3" v-model="selected" :value="200"
         >Una campanya de Google Ads (200 €)</b-form-checkbox
       >
-      <div><br>
+      <div>
+        <br />
         <h5>Preu:{{ resultat }} €</h5>
       </div>
     </div>
@@ -29,16 +30,16 @@ export default {
     return {
       selected: [],
       resultat: 0,
-      panellFlotant:document.getElementById('check1')
     };
-
   },
-  
+
   methods: {
     totalSuma(value) {
       this.resultat = value;
     },
-    
+    visible() {
+      alert("checkbox esta seleccionado");
+    },
   },
 };
 </script>
