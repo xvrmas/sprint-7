@@ -1,8 +1,34 @@
 <template>
-  <div v-if="condition">
+  <div>
     <div class="carta">
-      Número de paginas <input type="number" v-model="sumaTotal1" /><br /><br />
-      Número de idiomas <input type="number" v-model="sumaTotal2" />
+      Número de páginas <b-button
+        style="background-color: salmon"
+        variant="outline-light"
+        @click="sumaTotal1++"
+        >+</b-button
+      >
+      <input  size="1" v-model="sumaTotal1" />
+      <b-button
+        class="boto"
+        style="background-color: salmon"
+        variant="outline-light"
+        @click="sumaTotal1--"
+        >-</b-button
+      >
+      <br /><br />
+      Número de idiomas <b-button
+        style="background-color: salmon"
+        variant="outline-light"
+        @click="sumaTotal2++"
+        >+</b-button
+      >
+      <input size="1" v-model="sumaTotal2" />
+      <b-button
+        style="background-color: salmon"
+        variant="outline-light"
+        @click="sumaTotal2--"
+        >-</b-button
+      >
     </div>
   </div>
 </template>
@@ -15,8 +41,7 @@ export default {
       sumaTotal1: 0,
       sumaTotal2: 0,
       paginesIdiomes: 0,
-      condition:false
-
+      condition: false,
     };
   },
 
@@ -37,7 +62,6 @@ export default {
       this.total = 0;
       for (let item of this.selected) {
         this.total = this.total + item;
-        this.condition=true
       }
       return this.total + this.paginesIdiomes;
     },
@@ -52,7 +76,7 @@ export default {
 </script>
 <style scoped>
 .carta {
-  padding: 2rem;
+  padding: 5%;
   height: auto;
   width: fit-content;
   border: solid 3.5px;
