@@ -1,5 +1,7 @@
 <template>
   <div class="home ml-4">
+    <button class="btn" @click="Home">Inicio</button>
+    <hr />
     <h4>¿Qué quieres hacer?</h4>
     <div class="m-3">
       <b-form-checkbox v-model="selected" :value="500"
@@ -25,7 +27,7 @@
 import Panell from "@/components/Panell.vue";
 export default {
   components: { Panell },
-  name: "HomeView",
+  name: "Home",
   data() {
     return {
       selected: [],
@@ -37,11 +39,29 @@ export default {
     totalSuma(value) {
       this.resultat = value;
     },
+    Home() {
+      this.$router.push("/");
+    },
   },
 };
 </script>
-<style>
-  h4{
-    margin-left: 2%;
-  }
+<style scoped>
+body {
+  display: grid;
+  align-content: center;
+  text-align: center;
+}
+
+h4 {
+  margin-left: 2%;
+}
+.btn {
+  background-color: salmon;
+  color: white;
+  border: 0;
+  border-radius: 50px;
+  width: 200px;
+}
+
+
 </style>

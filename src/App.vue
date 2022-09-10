@@ -2,7 +2,7 @@
   <div id="app">
     <nav>
       <router-link to="/"></router-link> 
-      <router-link to="/about"></router-link> 
+      <router-link to="/Home"></router-link> 
     </nav>
     <router-view/>
   </div>
@@ -13,7 +13,7 @@
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align:start;
+  text-align: start;
   color: #2c3e50;
 }
 
@@ -27,6 +27,6 @@ nav a {
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color:black;
 }
 </style>

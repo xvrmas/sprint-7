@@ -1,13 +1,14 @@
 <template>
   <div>
     <div class="carta">
-      Número de páginas <b-button
+      Número de páginas
+      <b-button
         style="background-color: salmon"
         variant="outline-light"
         @click="sumaTotal1++"
         >+</b-button
       >
-      <input  size="1" v-model="sumaTotal1" />
+      <input size="1" class="caixa" v-model="sumaTotal1" />
       <b-button
         class="boto"
         style="background-color: salmon"
@@ -15,20 +16,36 @@
         @click="sumaTotal1--"
         >-</b-button
       >
+      <b-button class="btn-modal" v-b-modal.modal-center1 rounded> i</b-button>
+      <b-modal id="modal-center1" centered hide-footer hide-header>
+        <p class="my-4">
+          En este componente debe indicar el número de páginas que tendrá su
+          sitio web
+        </p>
+      </b-modal>
+
       <br /><br />
-      Número de idiomas <b-button
+      Número de idiomas
+      <b-button
         style="background-color: salmon"
         variant="outline-light"
         @click="sumaTotal2++"
         >+</b-button
       >
-      <input size="1" v-model="sumaTotal2" />
+      <input size="1" class="caixa" v-model="sumaTotal2" />
       <b-button
         style="background-color: salmon"
-        variant="outline-light"
+        variant="outline-light" 
         @click="sumaTotal2--"
         >-</b-button
       >
+      <b-button class="btn-modal" v-b-modal.modal-center2>i</b-button>
+      <b-modal id="modal-center2" centered hide-footer hide-header>
+        <p class="my-4">
+          En este componente debe indicar el número de idiomas que tendrá su
+          sitio web
+        </p>
+      </b-modal>
     </div>
   </div>
 </template>
@@ -83,5 +100,16 @@ export default {
   border-radius: 15px;
   margin-top: 1%;
   margin-bottom: 1%;
+}
+.btn-modal {
+  height: 25px;
+  line-height: 5px;
+  border-radius: 50%;
+  margin-left: 5px;
+  font-size: large;
+  font-weight:bold;
+}
+.caixa {
+  border: 0;
 }
 </style>
