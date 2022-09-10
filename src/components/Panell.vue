@@ -3,7 +3,11 @@
     <div class="carta">
       Número de páginas
       <b-button
-        style="background-color: salmon"
+        style="
+          background-color: salmon;
+          font-family: Times New Roman;
+          border-radius: 25%;
+        "
         variant="outline-light"
         @click="sumaTotal1++"
         >+</b-button
@@ -11,7 +15,11 @@
       <input size="1" class="caixa" v-model="sumaTotal1" />
       <b-button
         class="boto"
-        style="background-color: salmon"
+        style="
+          background-color: salmon;
+          font-family: Times New Roman;
+          border-radius: 25%;
+        "
         variant="outline-light"
         @click="sumaTotal1--"
         >-</b-button
@@ -27,15 +35,23 @@
       <br /><br />
       Número de idiomas
       <b-button
-        style="background-color: salmon"
+        style="
+          background-color: salmon;
+          font-family: Times New Roman;
+          border-radius: 25%;
+        "
         variant="outline-light"
         @click="sumaTotal2++"
         >+</b-button
       >
       <input size="1" class="caixa" v-model="sumaTotal2" />
       <b-button
-        style="background-color: salmon"
-        variant="outline-light" 
+        style="
+          background-color: salmon;
+          font-family: Times New Roman;
+          border-radius: 25%;
+        "
+        variant="outline-light"
         @click="sumaTotal2--"
         >-</b-button
       >
@@ -102,13 +118,13 @@ export default {
   margin-bottom: 1%;
 }
 .btn-modal {
-  height: 25px;
-  line-height: 5px;
+  height: 29px;
+  line-height:1px;
   border-radius: 50%;
   margin-left: 5px;
-  font-family:'Times New Roman';
+  font-family: "Times New Roman";
   font-size: large;
-  font-weight:bold;
+  font-weight: bold;
 }
 .caixa {
   border: 0;
