@@ -106,6 +106,7 @@ export default {
   line-height: 5px;
   border-radius: 50%;
   margin-left: 5px;
+  font-family:'Times New Roman';
   font-size: large;
   font-weight:bold;
 }
