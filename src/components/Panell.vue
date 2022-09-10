@@ -118,8 +118,8 @@ export default {
   margin-bottom: 1%;
 }
 .btn-modal {
-  height: 29px;
-  line-height:1px;
+  height: 28px;
+  line-height: 1px;
   border-radius: 50%;
   margin-left: 5px;
   font-family: "Times New Roman";
