@@ -85,6 +85,11 @@ export default {
       }
       if (this.sumaTotal2 < 0) {
         this.sumaTotal2 = 0;
+      }
+      if (this.condition == false) {
+        this.sumaTotal1 = 0;
+        this.sumaTotal2 = 0;
+        this.paginesIdiomes = 0;
       } else this.paginesIdiomes = this.sumaTotal1 * 30 + this.sumaTotal2 * 30;
       {
         return this.paginesIdiomes;
