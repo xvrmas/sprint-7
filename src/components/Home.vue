@@ -4,7 +4,7 @@
       <h4>¿Qué quieres hacer?</h4>
       <div class="mt-3">
         <b-form-checkbox
-          id="check1"
+          class="check1"
           v-model="selected"
           @change="showPanel()"
           :value="500"
@@ -64,6 +64,7 @@ export default {
       resultat: 0,
       text1: "",
       text2: "",
+      counter: 0,
       condition: false,
     };
   },
@@ -76,7 +77,13 @@ export default {
       this.$router.push("/");
     },
     showPanel() {
-      this.condition = true;
+      this.counter++;
+      console.log(this.counter);
+      if (this.counter % 2 == 0) {
+        this.condition = false;
+      } else {
+        this.condition = true;
+      }
     },
   },
 };
