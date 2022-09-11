@@ -114,7 +114,7 @@ h4 {
   border-radius: 30px;
   margin: 20px;
 }
-@media (max-width: 600px) {
+@media (max-width: 750px) {
   .contenidor {
     display: grid;
     grid-template-columns: auto;
