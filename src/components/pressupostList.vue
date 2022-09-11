@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h3>{{text1}}</h3><br>
-    <h3>{{text2}}</h3>
+    <h3 class="mt-3 ml-3">{{text1}}</h3><br>
+    <h3 class="ml-3">{{text2}}</h3>
   </div>
 </template>
 <script>

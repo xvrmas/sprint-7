@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="carta">
+    <div class="carta" v-if="condition">
       Número de páginas
       <b-button
         style="
@@ -68,13 +68,12 @@
 <script>
 export default {
   name: "Panell",
-  props: ["selected"],
+  props: ["selected", "condition"],
   data() {
     return {
       sumaTotal1: 0,
       sumaTotal2: 0,
       paginesIdiomes: 0,
-      condition: false,
     };
   },
 

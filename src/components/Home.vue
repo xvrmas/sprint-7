@@ -3,10 +3,18 @@
     <div class="home ml-4">
       <h4>¿Qué quieres hacer?</h4>
       <div class="mt-3">
-        <b-form-checkbox v-model="selected" :value="500"
+        <b-form-checkbox
+          id="check1"
+          v-model="selected"
+          @change="showPanel()"
+          :value="500"
           >Una pàgina web (500 €)</b-form-checkbox
         >
-        <panell :selected="selected" @resultat="totalSuma"></panell>
+        <panell
+          :selected="selected"
+          @resultat="totalSuma"
+          :condition="condition"
+        ></panell>
 
         <b-form-checkbox v-model="selected" :value="300"
           >Una consultoria SEO (300 €)</b-form-checkbox
@@ -20,15 +28,19 @@
         </div>
       </div>
       <div>
-        <p>Si lo desea puede guardar el presupuesto ingresando el nombre del cliente<br> y una referencía.</p>
+        <p>
+          Si lo desea puede guardar el presupuesto ingresando el nombre del
+          cliente<br />
+          y una referencía.
+        </p>
         <b-form-input
           v-model="text1"
           placeholder="Nombre del cliente"
         ></b-form-input>
         <b-form-input
-          class="mt-3"
+          class="mt-3 mb-4"
           v-model="text2"
-          placeholder="referencia del presupuesto"
+          placeholder="Referencia del presupuesto"
         ></b-form-input>
         <button class="btn m-1">Guardar</button>
         <button class="btn m-1" @click="Home">Inicio</button>
@@ -50,9 +62,9 @@ export default {
     return {
       selected: [],
       resultat: 0,
-      text1:'',
-      text2:''
-
+      text1: "",
+      text2: "",
+      condition: false,
     };
   },
 
@@ -62,6 +74,9 @@ export default {
     },
     Home() {
       this.$router.push("/");
+    },
+    showPanel() {
+      this.condition = true;
     },
   },
 };
@@ -88,14 +103,14 @@ h4 {
   grid-template-columns: 2fr 2fr;
 }
 .presupost {
-  /* border: solid 1px; */
-  margin-right: 20px;
+  border: solid 1px;
+  border-radius: 30px;
+  margin: 20px;
 }
 @media (max-width: 600px) {
-  .contenidor{
+  .contenidor {
     display: grid;
     grid-template-columns: auto;
   }
-  
 }
 </style>
