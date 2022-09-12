@@ -71,8 +71,8 @@ export default {
   props: ["selected", "condition"],
   data() {
     return {
-      sumaTotal1: 0,
-      sumaTotal2: 0,
+      sumaTotal1: 1,
+      sumaTotal2: 1,
       paginesIdiomes: 0,
     };
   },
@@ -80,17 +80,17 @@ export default {
   total: 0,
   computed: {
     sumaTotal() {
-      if (this.sumaTotal1 < 0) {
-        this.sumaTotal1 = 0;
+      if (this.sumaTotal1 < 1) {
+        this.sumaTotal1 = 1;
       }
       if (this.sumaTotal2 < 0) {
         this.sumaTotal2 = 0;
       }
       if (this.condition == false) {
         this.sumaTotal1 = 0;
-        this.sumaTotal2 = 0;
+        this.sumaTotal2 = 1;
         this.paginesIdiomes = 0;
-      } else this.paginesIdiomes = this.sumaTotal1 * 30 + this.sumaTotal2 * 30;
+      } else this.paginesIdiomes = this.sumaTotal1 * this.sumaTotal2 * 30;
       {
         return this.paginesIdiomes;
       }

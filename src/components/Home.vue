@@ -110,7 +110,7 @@ h4 {
   grid-template-columns: 2fr 2fr;
 }
 .presupost {
-  border: solid 1px;
+  border: solid 3.5px;
   border-radius: 30px;
   margin: 20px;
 }
