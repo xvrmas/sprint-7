@@ -34,20 +34,22 @@
           y una referencía.
         </p>
         <b-form-input
-          v-model="text1"
-          placeholder="Nombre del cliente"
-        ></b-form-input>
-        <b-form-input
-          class="mt-3 mb-4"
-          v-model="text2"
+          type="text"
+          v-model="referencia"
           placeholder="Referencia del presupuesto"
         ></b-form-input>
-        <button class="btn m-1">Guardar</button>
+        <b-form-input
+          type="text"
+          class="mt-3 mb-4"
+          v-model="nom"
+          placeholder="Nombre del cliente"
+        ></b-form-input>
+        <button class="btn m-1" @click="guardar()">Guardar</button>
         <button class="btn m-1" @click="Home">Inicio</button>
       </div>
     </div>
     <div class="presupost">
-      <pressupostList :text1="text1" :text2="text2"> </pressupostList>
+      <pressupostList :presupost="arrayPresupost"> </pressupostList>
     </div>
   </div>
 </template>
@@ -61,10 +63,14 @@ export default {
   data() {
     return {
       selected: [],
+      arrayPresupost: [],
+      nom: "",
+      referencia: "",
       resultat: 0,
       text1: "",
       text2: "",
       counter: 0,
+      preu: 0,
       condition: false,
     };
   },
@@ -84,6 +90,17 @@ export default {
       } else {
         this.condition = true;
       }
+    },
+    guardar() {
+      var pressupostList = {
+        nom: this.nom,
+        referencia: this.referencia,
+        preu: this.resultat,
+      };
+      this.arrayPresupost.push(pressupostList),
+        (this.nom = ""),
+        (this.referencia = "");
+      return this.arrayPresupost;
     },
   },
 };
@@ -110,8 +127,6 @@ h4 {
   grid-template-columns: 2fr 2fr;
 }
 .presupost {
-  border: solid 3.5px;
-  border-radius: 30px;
   margin: 20px;
 }
 @media (max-width: 750px) {

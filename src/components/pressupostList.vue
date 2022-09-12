@@ -1,13 +1,26 @@
 <template>
   <div>
-    <h3 class="mt-3 ml-3">{{text1}}</h3><br>
-    <h3 class="ml-3">{{text2}}</h3>
+    <h3>Llistat de presupostos:</h3>
+    <div v-for="element in presupost" :key="element.id">
+      <h6>
+        Nom del presupost:<strong> {{ element.referencia }}</strong>
+      </h6>
+      <h6>
+        Client: <strong>{{ element.nom }}</strong>
+      </h6>
+      <h6>
+        serveis: <strong> {{ "aquí van els serveis contractats" }}</strong>
+      </h6><h6>
+        Preu: <strong> {{ element.preu }}</strong>
+      </h6>
+      <hr />
+    </div>
   </div>
 </template>
 <script>
 export default {
   name: "presupostList",
-  props:['text1','text2']
+  props: ["presupost"],
 };
 </script>
 <style>
