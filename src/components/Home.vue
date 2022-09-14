@@ -4,7 +4,9 @@
       <h4>¿Qué quieres hacer?</h4>
       <div class="mt-3">
         <b-form-checkbox
-          class="check1"
+          class="check"
+          id="1"
+          name="Una pàgina web"
           v-model="selected"
           @change="showPanel()"
           :value="500"
@@ -16,10 +18,20 @@
           :condition="condition"
         ></panell>
 
-        <b-form-checkbox v-model="selected" :value="300"
+        <b-form-checkbox
+          class="check"
+          id="2"
+          name="Una consultoria SEO"
+          v-model="selected"
+          :value="300"
           >Una consultoria SEO (300 €)</b-form-checkbox
         >
-        <b-form-checkbox v-model="selected" :value="200"
+        <b-form-checkbox
+          class="check"
+          id="3"
+          name="Una campanya de Google Ads"
+          v-model="selected"
+          :value="200"
           >Una campanya de Google Ads (200 €)</b-form-checkbox
         >
         <div>
@@ -41,7 +53,7 @@
         <b-form-input
           type="text"
           class="mt-3 mb-4"
-          v-model="nom"
+          v-model="client"
           placeholder="Nombre del cliente"
         ></b-form-input>
         <button class="btn m-1" @click="guardar()">Guardar</button>
@@ -64,7 +76,7 @@ export default {
     return {
       selected: [],
       arrayPresupost: [],
-      nom: "",
+      client: "",
       referencia: "",
       resultat: 0,
       text1: "",
@@ -72,6 +84,7 @@ export default {
       counter: 0,
       preu: 0,
       condition: false,
+      check: document.getElementsByClassName("check"),
     };
   },
 
@@ -93,13 +106,14 @@ export default {
     },
     guardar() {
       var pressupostList = {
-        nom: this.nom,
         referencia: this.referencia,
+        client: this.client,
         preu: this.resultat,
       };
       this.arrayPresupost.push(pressupostList),
-        (this.nom = ""),
+        (this.client = ""),
         (this.referencia = "");
+      this.condition = false;
       return this.arrayPresupost;
     },
   },

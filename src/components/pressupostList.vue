@@ -1,16 +1,17 @@
 <template>
   <div>
-    <h3>Llistat de presupostos:</h3>
+    <h4>Llistat de presupostos: </h4>
     <div v-for="element in presupost" :key="element.id">
       <h6>
         Nom del presupost:<strong> {{ element.referencia }}</strong>
       </h6>
       <h6>
-        Client: <strong>{{ element.nom }}</strong>
+        Client: <strong>{{ element.client }}</strong>
       </h6>
       <h6>
         serveis: <strong> {{ "aquí van els serveis contractats" }}</strong>
-      </h6><h6>
+      </h6>
+      <h6>
         Preu: <strong> {{ element.preu }}</strong>
       </h6>
       <hr />
