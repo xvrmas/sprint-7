@@ -8,7 +8,7 @@
           id="1"
           name="Una pàgina web"
           v-model="selected"
-          @change="showPanel()"
+          @change="showPanel(), clicat('Una pàgina web')"
           :value="500"
           >Una pàgina web (500 €)</b-form-checkbox
         >
@@ -22,6 +22,7 @@
           class="check"
           id="2"
           name="Una consultoria SEO"
+          @change="clicat('Una consultoria SEO')"
           v-model="selected"
           :value="300"
           >Una consultoria SEO (300 €)</b-form-checkbox
@@ -30,6 +31,7 @@
           class="check"
           id="3"
           name="Una campanya de Google Ads"
+          @change="clicat('Una campanya de Google Ads')"
           v-model="selected"
           :value="200"
           >Una campanya de Google Ads (200 €)</b-form-checkbox
@@ -37,6 +39,10 @@
         <div>
           <br />
           <h5>Preu:{{ resultat }} €</h5>
+          <h6>total: {{ selected }}</h6>
+          <div v-for="element in arrayServei" :key="element.id">
+            <h6>{{ element }}</h6>
+          </div>
         </div>
       </div>
       <div>
@@ -76,19 +82,27 @@ export default {
     return {
       selected: [],
       arrayPresupost: [],
+      arrayServei: [],
       client: "",
       referencia: "",
       resultat: 0,
-      text1: "",
-      text2: "",
       counter: 0,
       preu: 0,
       condition: false,
-      check: document.getElementsByClassName("check"),
+      textServei: "",
     };
   },
 
   methods: {
+    clicat(id) {
+      if (this.arrayServei.indexOf(id) === -1) {
+        this.arrayServei.push(id);
+      } else if (this.arrayServei.indexOf(id) > -1) {
+        alert("repetit");
+        console.log(this.arrayServei);
+      }
+      return this.arrayServei;
+    },
     totalSuma(value) {
       this.resultat = value;
     },
@@ -109,11 +123,14 @@ export default {
         referencia: this.referencia,
         client: this.client,
         preu: this.resultat,
+        serveis: this.arrayServei,
       };
       this.arrayPresupost.push(pressupostList),
         (this.client = ""),
         (this.referencia = "");
+      this.arrayServei = [];
       this.condition = false;
+      console.log(this.arrayPresupost);
       return this.arrayPresupost;
     },
   },
