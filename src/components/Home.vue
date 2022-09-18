@@ -117,7 +117,6 @@ export default {
     },
     showPanel() {
       this.counter++;
-      console.log(this.counter);
       if (this.counter % 2 == 0) {
         this.condition = false;
       } else {
@@ -131,11 +130,27 @@ export default {
         preu: this.resultat,
         serveis: this.arrayServei,
       };
-      this.arrayPresupost.push(pressupostList),
-        (this.client = ""),
-        (this.referencia = "");
-      this.condition = false;
-      this.resetCheck();
+      if (this.arrayServei == 0 && this.client == "" && this.referencia == "") {
+        alert(
+          "No se puede guardar un presupuesto vacio.Elija un servicio y rellene los campos referencia y nombre"
+        );
+      } else if (this.arrayServei.length == 0) {
+        alert(
+          "Para guardar un presupuesto primero debe elegir almenos un servicio"
+        );
+      } else if (this.client == "" && this.referencia == "") {
+        alert("Los campos 'referencia' y 'nombre' no pueden estar vacios");
+      } else if (this.referencia == "") {
+        alert("Introduzca una referencia");
+      } else if (this.client == "") {
+        alert("Introduzca su nombre");
+      } else {
+        this.arrayPresupost.push(pressupostList),
+          (this.client = ""),
+          (this.referencia = "");
+        this.condition = false;
+        this.resetCheck();
+      }
       return this.arrayPresupost;
     },
 
@@ -151,9 +166,7 @@ export default {
         document.getElementById("1").checked = false;
         document.getElementById("2").checked = false;
         document.getElementById("3").checked = false;
-        this.arrayServei=[],
-        this.selected=[],
-        this.counter=0
+        (this.arrayServei = []), (this.selected = []), (this.counter = 0);
       }
     },
   },

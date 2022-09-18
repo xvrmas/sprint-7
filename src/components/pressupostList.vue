@@ -15,6 +15,12 @@
             serveis: <strong> {{ element.serveis }}</strong>
           </h6>
           <h6>
+           Nº de pagines:<strong></strong>
+          </h6>
+          <h6>
+            Idiomes:<strong></strong>
+          </h6>
+          <h6>
             Preu: <strong> {{ element.preu }}</strong>
           </h6>
           <hr />
