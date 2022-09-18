@@ -39,9 +39,8 @@
         <div>
           <br />
           <h5>Preu:{{ resultat }} €</h5>
-          <h6>total: {{ selected }}</h6>
           <div v-for="element in arrayServei" :key="element.id">
-            <h6>{{ element }}</h6>
+            <h4>{{ element }}</h4>
           </div>
         </div>
       </div>
@@ -89,19 +88,27 @@ export default {
       counter: 0,
       preu: 0,
       condition: false,
+      trobat: false,
       textServei: "",
     };
   },
 
   methods: {
     clicat(id) {
-      if (this.arrayServei.indexOf(id) === -1) {
-        this.arrayServei.push(id);
-      } else if (this.arrayServei.indexOf(id) > -1) {
-        alert("repetit");
-        console.log(this.arrayServei);
+      var i = 0;
+      while (i <= this.arrayServei.length && !this.trobat) {
+        if (this.arrayServei[i] == id) {
+          this.trobat = true;
+        }
+        i++;
       }
-      return this.arrayServei;
+      if (this.trobat == true) {
+        this.arrayServei.splice(i - 1, 1);
+      } else {
+        this.arrayServei.push(id);
+      }
+      this.trobat = false;
+      return this.arrayServei
     },
     totalSuma(value) {
       this.resultat = value;
@@ -128,7 +135,7 @@ export default {
       this.arrayPresupost.push(pressupostList),
         (this.client = ""),
         (this.referencia = "");
-      this.arrayServei = [];
+      // this.arrayServei = [];
       this.condition = false;
       console.log(this.arrayPresupost);
       return this.arrayPresupost;
