@@ -8,7 +8,7 @@
           id="1"
           name="Una pàgina web"
           v-model="selected"
-          @change="showPanel(), clicat('Una pàgina web')"
+          @change="showPanel(), clicat('Una pàgina web'), updateCheck()"
           :value="500"
           >Una pàgina web (500 €)</b-form-checkbox
         >
@@ -22,7 +22,7 @@
           class="check"
           id="2"
           name="Una consultoria SEO"
-          @change="clicat('Una consultoria SEO')"
+          @change="clicat('Una consultoria SEO'), updateCheck()"
           v-model="selected"
           :value="300"
           >Una consultoria SEO (300 €)</b-form-checkbox
@@ -31,7 +31,7 @@
           class="check"
           id="3"
           name="Una campanya de Google Ads"
-          @change="clicat('Una campanya de Google Ads')"
+          @change="clicat('Una campanya de Google Ads'), updateCheck()"
           v-model="selected"
           :value="200"
           >Una campanya de Google Ads (200 €)</b-form-checkbox
@@ -39,9 +39,6 @@
         <div>
           <br />
           <h5>Preu:{{ resultat }} €</h5>
-          <div v-for="element in arrayServei" :key="element.id">
-            <h4>{{ element }}</h4>
-          </div>
         </div>
       </div>
       <div>
@@ -82,6 +79,7 @@ export default {
       selected: [],
       arrayPresupost: [],
       arrayServei: [],
+      arrayCheck: [],
       client: "",
       referencia: "",
       resultat: 0,
@@ -89,6 +87,7 @@ export default {
       preu: 0,
       condition: false,
       trobat: false,
+      isCheck: false,
       textServei: "",
     };
   },
@@ -108,7 +107,7 @@ export default {
         this.arrayServei.push(id);
       }
       this.trobat = false;
-      return this.arrayServei
+      return this.arrayServei;
     },
     totalSuma(value) {
       this.resultat = value;
@@ -135,10 +134,27 @@ export default {
       this.arrayPresupost.push(pressupostList),
         (this.client = ""),
         (this.referencia = "");
-      // this.arrayServei = [];
       this.condition = false;
-      console.log(this.arrayPresupost);
+      this.resetCheck();
       return this.arrayPresupost;
+    },
+
+    updateCheck() {
+      if (this.arrayServei.length >= 1) {
+        this.isCheck = true;
+      } else {
+        this.isCheck = false;
+      }
+    },
+    resetCheck() {
+      if (this.isCheck == true) {
+        document.getElementById("1").checked = false;
+        document.getElementById("2").checked = false;
+        document.getElementById("3").checked = false;
+        this.arrayServei=[],
+        this.selected=[],
+        this.counter=0
+      }
     },
   },
 };
