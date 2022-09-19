@@ -5,23 +5,23 @@
       <div class="mt-3">
         <b-form-checkbox
           class="check"
-          id="1"
-          name="Una pàgina web"
           v-model="selected"
-          @change="showPanel(), clicat('Una pàgina web'), updateCheck()"
+          @change="
+            showPanel(), clicat('Una pàgina web'), updateCheck()
+          "
           :value="500"
           >Una pàgina web (500 €)</b-form-checkbox
         >
         <panell
           :selected="selected"
           @resultat="totalSuma"
+          @pagines="numPagines"
+          @idiomes="numIdiomes"
           :condition="condition"
         ></panell>
 
         <b-form-checkbox
           class="check"
-          id="2"
-          name="Una consultoria SEO"
           @change="clicat('Una consultoria SEO'), updateCheck()"
           v-model="selected"
           :value="300"
@@ -29,9 +29,9 @@
         >
         <b-form-checkbox
           class="check"
-          id="3"
-          name="Una campanya de Google Ads"
-          @change="clicat('Una campanya de Google Ads'), updateCheck()"
+          @change="
+            clicat('Una campanya de Google Ads'), updateCheck()
+          "
           v-model="selected"
           :value="200"
           >Una campanya de Google Ads (200 €)</b-form-checkbox
@@ -41,7 +41,8 @@
           <h5>Preu:{{ resultat }} €</h5>
         </div>
       </div>
-      <div>
+      <div >
+        <hr style="border: solid 1px" />
         <p>
           Si lo desea puede guardar el presupuesto ingresando el nombre del
           cliente<br />
@@ -85,6 +86,8 @@ export default {
       resultat: 0,
       counter: 0,
       preu: 0,
+      pagines: 0,
+      idiomes: 0,
       condition: false,
       trobat: false,
       isCheck: false,
@@ -112,6 +115,12 @@ export default {
     totalSuma(value) {
       this.resultat = value;
     },
+    numPagines(value) {
+      this.pagines = value;
+    },
+    numIdiomes(value) {
+      this.idiomes = value;
+    },
     Home() {
       this.$router.push("/");
     },
@@ -123,12 +132,15 @@ export default {
         this.condition = true;
       }
     },
+   
     guardar() {
       var pressupostList = {
         referencia: this.referencia,
         client: this.client,
         preu: this.resultat,
         serveis: this.arrayServei,
+        pagines: this.pagines,
+        idiomes: this.idiomes,
       };
       if (this.arrayServei == 0 && this.client == "" && this.referencia == "") {
         alert(
@@ -163,9 +175,7 @@ export default {
     },
     resetCheck() {
       if (this.isCheck == true) {
-        document.getElementById("1").checked = false;
-        document.getElementById("2").checked = false;
-        document.getElementById("3").checked = false;
+        document.getElementsByClassName("check").checked = false;
         (this.arrayServei = []), (this.selected = []), (this.counter = 0);
       }
     },

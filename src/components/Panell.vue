@@ -86,9 +86,12 @@ export default {
       if (this.sumaTotal2 < 0) {
         this.sumaTotal2 = 0;
       }
+      if (this.condition == true) {
+        this.sumaTotal2 = 1;
+      }
       if (this.condition == false) {
         this.sumaTotal1 = 0;
-        this.sumaTotal2 = 1;
+        this.sumaTotal2 = 0;
         this.paginesIdiomes = 0;
       } else this.paginesIdiomes = this.sumaTotal1 * this.sumaTotal2 * 30;
       {
@@ -107,7 +110,11 @@ export default {
     sumaPresupost: function () {
       this.$emit("resultat", this.sumaPresupost);
     },
-    sumaTotal() {},
+
+    sumaTotal: function () {
+      this.$emit("pagines", this.sumaTotal1);
+      this.$emit("idiomes", this.sumaTotal2);
+    },
   },
 };
 </script>

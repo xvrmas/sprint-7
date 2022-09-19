@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h4>Llistat de presupostos:</h4>
-
+    <h4>Llistat de pressupostos:</h4>
+    <hr style="border:solid 1px" />
     <div class="caixa">
       <div class="llistat">
         <div v-for="element in presupost" :key="element.id">
@@ -14,16 +14,12 @@
           <h6>
             serveis: <strong> {{ element.serveis }}</strong>
           </h6>
-          <h6>
-           Nº de pagines:<strong></strong>
-          </h6>
-          <h6>
-            Idiomes:<strong></strong>
-          </h6>
+          <h6>Nº de pagines:<strong>{{element.pagines}}</strong></h6>
+          <h6>Idiomes:<strong>{{element.idiomes}}</strong></h6>
           <h6>
             Preu: <strong> {{ element.preu }}</strong>
           </h6>
-          <hr />
+          <hr style="border:solid 1px" />
         </div>
       </div>
     </div>
@@ -32,15 +28,11 @@
 <script>
 export default {
   name: "presupostList",
-  props: ["presupost"],
+  props: ["presupost"],  
 };
 </script>
 <style>
-.caixa {
-  border: solid 0.1px;
-  border-radius: 2%;
-}
-.llistat{
-  margin:10px
+.llistat {
+  margin: 10px;
 }
 </style>
