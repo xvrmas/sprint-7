@@ -81,6 +81,8 @@ export default {
       arrayCheck: [],
       client: "",
       referencia: "",
+      textServei: "",
+      data: new Date(),
       resultat: 0,
       counter: 0,
       preu: 0,
@@ -89,7 +91,6 @@ export default {
       condition: false,
       trobat: false,
       isCheck: false,
-      textServei: "",
     };
   },
 
@@ -133,6 +134,7 @@ export default {
 
     guardar() {
       var pressupostList = {
+        data: this.data.toUTCString(),
         referencia: this.referencia,
         client: this.client,
         preu: this.resultat,
