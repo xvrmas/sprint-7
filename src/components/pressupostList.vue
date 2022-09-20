@@ -1,6 +1,13 @@
 <template>
   <div>
-    <h4>Llistat de pressupostos:</h4>
+    <button class="btn m-1" @click="ordenarAlfabet()">A-Z</button>
+    <button class="btn m-1" @click="ordenarData()">
+      <b-icon icon="calendar-date"></b-icon>
+    </button>
+    <button class="btn m-1" @click="reiniciar()">
+      <b-icon icon="arrow-repeat"></b-icon>
+    </button>
+    <!-- <h4>Llistat de pressupostos:</h4> -->
     <hr style="border: solid 1px" />
     <div class="caixa">
       <div class="llistat">
@@ -19,9 +26,9 @@
           </h6>
           <h6>
             Idiomes:<strong>{{ element.idiomes }}</strong>
-            <h6>
-              Data del presupost: <strong>{{ element.diaHora }}</strong>
-            </h6>
+          </h6>
+          <h6>
+            Data del presupost: <strong>{{ element.diaHora }}</strong>
           </h6>
           <h6>
             Preu: <strong> {{ element.preu }}</strong>
@@ -32,14 +39,38 @@
     </div>
   </div>
 </template>
-<script>
+<script scoped>
 export default {
   name: "presupostList",
   props: ["presupost"],
+  methods: {
+    ordenarAlfabet() {
+      alert("alfabet");
+    },
+    ordenarData() {
+      alert("data");
+    },
+    reiniciar() {
+      alert("reinicia");
+    },
+  },
 };
 </script>
-<style>
+<style scoped>
+body {
+  display: grid;
+  align-content: center;
+  text-align: center;
+}
 .llistat {
   margin: 10px;
+}
+.btn {
+  background-color: salmon;
+  color: white;
+  border: 0;
+  border-radius: 50px;
+  height: 6vh;
+  width: auto;
 }
 </style>

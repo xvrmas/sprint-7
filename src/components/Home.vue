@@ -44,9 +44,8 @@
       <div>
         <hr style="border: solid 1px" />
         <p>
-          Si lo desea puede guardar el presupuesto ingresando el nombre del
-          cliente<br />
-          y una referencía.
+          Si ho desitgeu podeu desar el pressupost ingressant el nom del client
+          <br />i una referència.
         </p>
         <b-form-input
           type="text"
@@ -86,7 +85,7 @@ export default {
       client: "",
       referencia: "",
       textServei: "",
-      diaHora: '',
+      diaHora: "",
       resultat: 0,
       counter: 0,
       preu: 0,
