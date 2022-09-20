@@ -6,9 +6,7 @@
         <b-form-checkbox
           class="check"
           v-model="selected"
-          @change="
-            showPanel(), clicat('Una pàgina web'), updateCheck()
-          "
+          @change="showPanel(), clicat('Una pàgina web'), updateCheck()"
           :value="500"
           >Una pàgina web (500 €)</b-form-checkbox
         >
@@ -29,9 +27,7 @@
         >
         <b-form-checkbox
           class="check"
-          @change="
-            clicat('Una campanya de Google Ads'), updateCheck()
-          "
+          @change="clicat('Una campanya de Google Ads'), updateCheck()"
           v-model="selected"
           :value="200"
           >Una campanya de Google Ads (200 €)</b-form-checkbox
@@ -41,7 +37,7 @@
           <h5>Preu:{{ resultat }} €</h5>
         </div>
       </div>
-      <div >
+      <div>
         <hr style="border: solid 1px" />
         <p>
           Si lo desea puede guardar el presupuesto ingresando el nombre del
@@ -51,13 +47,15 @@
         <b-form-input
           type="text"
           v-model="referencia"
-          placeholder="Referencia del presupuesto"
+          placeholder="Referencia del presupuesto, maximo 5 caracteres"
+          maxlength="5"
         ></b-form-input>
         <b-form-input
           type="text"
           class="mt-3 mb-4"
           v-model="client"
           placeholder="Nombre del cliente"
+          maxlength="25"
         ></b-form-input>
         <button class="btn m-1" @click="guardar()">Guardar</button>
         <button class="btn m-1" @click="Home">Inicio</button>
@@ -132,7 +130,7 @@ export default {
         this.condition = true;
       }
     },
-   
+
     guardar() {
       var pressupostList = {
         referencia: this.referencia,
@@ -176,6 +174,7 @@ export default {
     resetCheck() {
       if (this.isCheck == true) {
         document.getElementsByClassName("check").checked = false;
+
         (this.arrayServei = []), (this.selected = []), (this.counter = 0);
       }
     },

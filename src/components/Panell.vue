@@ -83,10 +83,7 @@ export default {
       if (this.sumaTotal1 < 1) {
         this.sumaTotal1 = 1;
       }
-      if (this.sumaTotal2 < 0) {
-        this.sumaTotal2 = 0;
-      }
-      if (this.condition == true) {
+      if (this.sumaTotal2 < 1) {
         this.sumaTotal2 = 1;
       }
       if (this.condition == false) {
