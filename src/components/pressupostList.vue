@@ -6,9 +6,6 @@
       <div class="llistat">
         <div v-for="element in presupost" :key="element.id">
           <h6>
-            Data del presupost: <strong>{{element.data}}</strong>
-          </h6>
-          <h6>
             Nom del presupost:<strong> {{ element.referencia }}</strong>
           </h6>
           <h6>
@@ -22,6 +19,9 @@
           </h6>
           <h6>
             Idiomes:<strong>{{ element.idiomes }}</strong>
+            <h6>
+              Data del presupost: <strong>{{ element.diaHora }}</strong>
+            </h6>
           </h6>
           <h6>
             Preu: <strong> {{ element.preu }}</strong>

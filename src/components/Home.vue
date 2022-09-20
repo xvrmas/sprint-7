@@ -6,7 +6,9 @@
         <b-form-checkbox
           class="check"
           v-model="selected"
-          @change="showPanel(), clicat('Una pàgina web'), updateCheck()"
+          @change="
+            showPanel(), clicat('Una pàgina web'), updateCheck(), diaHoraPresu()
+          "
           :value="500"
           >Una pàgina web (500 €)</b-form-checkbox
         >
@@ -20,14 +22,16 @@
 
         <b-form-checkbox
           class="check"
-          @change="clicat('Una consultoria SEO'), updateCheck()"
+          @change="clicat('Una consultoria SEO'), updateCheck(), diaHoraPresu()"
           v-model="selected"
           :value="300"
           >Una consultoria SEO (300 €)</b-form-checkbox
         >
         <b-form-checkbox
           class="check"
-          @change="clicat('Una campanya de Google Ads'), updateCheck()"
+          @change="
+            clicat('Una campanya de Google Ads'), updateCheck(), diaHoraPresu()
+          "
           v-model="selected"
           :value="200"
           >Una campanya de Google Ads (200 €)</b-form-checkbox
@@ -82,7 +86,7 @@ export default {
       client: "",
       referencia: "",
       textServei: "",
-      data: new Date(),
+      diaHora: '',
       resultat: 0,
       counter: 0,
       preu: 0,
@@ -131,10 +135,13 @@ export default {
         this.condition = true;
       }
     },
-
+    diaHoraPresu() {
+      this.diaHora = new Date().toUTCString();
+      return this.diaHora;
+    },
     guardar() {
       var pressupostList = {
-        data: this.data.toUTCString(),
+        diaHora: this.diaHora,
         referencia: this.referencia,
         client: this.client,
         preu: this.resultat,
