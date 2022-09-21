@@ -139,6 +139,8 @@ export default {
       return this.diaHora;
     },
     guardar() {
+      var i = 0;
+     
       var pressupostList = {
         diaHora: this.diaHora,
         referencia: this.referencia,

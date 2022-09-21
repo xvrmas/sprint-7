@@ -19,7 +19,7 @@
             Client: <strong>{{ element.client }}</strong>
           </h6>
           <h6>
-            serveis: <strong> {{ element.serveis + "," }}</strong>
+            serveis: <strong> {{ element.serveis + "" }}</strong>
           </h6>
           <h6>
             Nº de pagines:<strong>{{ element.pagines }}</strong>
@@ -43,16 +43,35 @@
 export default {
   name: "presupostList",
   props: ["presupost"],
+  data() {
+    return {
+      ordre: [],
+    };
+  },
   methods: {
     ordenarAlfabet() {
-      alert("alfabet");
+      this.presupost.sort((a, b) => {
+        if (a.referencia.toLowerCase() > b.referencia.toLowerCase()) {
+          return 1;
+        }
+        if (a.referencia.toLowerCase() < b.referencia.toLowerCase()) {
+          return -1;
+        }
+        return 0;
+      });
     },
     ordenarData() {
-      alert("data");
+      this.presupost.sort((a, b) => {
+        if (a.diaHora > b.diaHora) {
+          return 1;
+        }
+        if (a.diaHora < b.diaHora) {
+          return -1;
+        }
+        return 0;
+      });
     },
-    reiniciar() {
-      alert("reinicia");
-    },
+    reiniciar() {},
   },
 };
 </script>
@@ -69,8 +88,8 @@ body {
   background-color: salmon;
   color: white;
   border: 0;
-  border-radius: 50px;
-  height: 6vh;
+  border-radius: 50%;
+  height: 50px;
   width: auto;
 }
 </style>
