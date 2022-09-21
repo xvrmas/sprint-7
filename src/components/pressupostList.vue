@@ -4,9 +4,12 @@
     <button class="btn m-1" @click="ordenarData()">
       <b-icon icon="calendar-date"></b-icon>
     </button>
-    <button class="btn m-1" @click="reiniciar()">
-      <b-icon icon="arrow-repeat"></b-icon>
+    <button class="btn m-1" @click="ordenarPreu()">€ +/-</button>
+    <!-- <button class="btn m-1" @click="cercaRef()">
+      <b-icon icon="search"></b-icon>
     </button>
+    <button class="btn m-1" @click="cercaNom()"><b-icon></b-icon></button> -->
+
     <!-- <h4>Llistat de pressupostos:</h4> -->
     <hr style="border: solid 1px" />
     <div class="caixa">
@@ -71,7 +74,19 @@ export default {
         return 0;
       });
     },
-    reiniciar() {},
+    ordenarPreu() {
+      this.presupost.sort((a, b) => {
+        if (a.preu > b.preu) {
+          return -1;
+        }
+        if (a.preu < b.preu) {
+          return 1;
+        }
+        return 0;
+      });
+    },
+    // cercaRef() {},
+    // cercaNom() {},
   },
 };
 </script>
