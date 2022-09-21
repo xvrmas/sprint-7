@@ -25,15 +25,15 @@
           <h6>
             serveis: <strong> {{ element.serveis + "" }}</strong>
           </h6>
-          <h6>
+          <!-- <h6>
             Nº de pagines:<strong>{{ element.pagines }}</strong>
           </h6>
           <h6>
             Idiomes:<strong>{{ element.idiomes }}</strong>
-          </h6>
-          <h6>
+          </h6> -->
+          <!-- <h6>
             Data del presupost: <strong>{{ element.diaHora }}</strong>
-          </h6>
+          </h6> -->
           <h6>
             Preu: <strong> {{ element.preu }}</strong>
           </h6>
@@ -105,7 +105,7 @@ body {
   color: white;
   border: 0;
   border-radius: 50%;
-  height: 50px;
+  height:55px;
   width: auto;
 }
 </style>

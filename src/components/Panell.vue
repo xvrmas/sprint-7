@@ -83,12 +83,12 @@ export default {
       if (this.sumaTotal1 < 1) {
         this.sumaTotal1 = 1;
       }
-      if (this.sumaTotal2 < 1) {
+      if (this.sumaTotal2 < 0) {
         this.sumaTotal2 = 1;
       }
       if (this.condition == false) {
         this.sumaTotal1 = 0;
-        this.sumaTotal2 = 0;
+        this.sumaTotal2 = 1;
         this.paginesIdiomes = 0;
       } else this.paginesIdiomes = this.sumaTotal1 * this.sumaTotal2 * 30;
       {
