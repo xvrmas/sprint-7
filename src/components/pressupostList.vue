@@ -1,10 +1,11 @@
 <template>
   <div>
     <button class="btn m-1" @click="ordenarAlfabet()">A-Z</button>
-    <button class="btn m-1" @click="ordenarData()">
-      <b-icon icon="calendar-date"></b-icon>
-    </button>
+  
     <button class="btn m-1" @click="ordenarPreu()">€ +/-</button>
+    <button class="btn m-1" @click="ordenarData()">
+      <b-icon icon="arrow-repeat"></b-icon>
+    </button>
     <!-- <button class="btn m-1" @click="cercaRef()">
       <b-icon icon="search"></b-icon>
     </button>
