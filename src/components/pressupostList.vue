@@ -17,7 +17,7 @@
     <button class="btn m-1" @click="cercaNom()">
       <b-icon icon="search"></b-icon>Cerca per nom
     </button>
-    <input type="text" placeholder="Entra un nom" />
+    <input type="text" v-model="textNom" placeholder="Entra un nom" />
     <h4>Llistat de pressupostos:</h4>
     <hr style="border: solid 1px" />
     <div class="caixa">
@@ -63,6 +63,7 @@ export default {
       i: 0,
       arrayReferencia: [],
       texteRef: [],
+      textNom: [],
     };
   },
   methods: {
@@ -100,27 +101,19 @@ export default {
       });
     },
     cercaRef() {
-      
-      let result = this.presupost.filter(element => element.referencia == this.texteRef);
-      console.log(result)
-      
-      // var i = 0;
-      // console.log(this.texteRef);
-      // while (i <= this.presupost.length && !this.trobat) {
-      //   if (this.presupost[i].referencia == this.texteRef) {
-      //     this.trobat = true;
-      //   }
-      //   i++;
-      // }
-      // if (this.trobat == true) {
-      //   this.arrayReferencia.push(this.presupost[i]);
-      //   console.log(this.arrayReferencia);
-      // } else {
-      //   alert("No s ha trobat la referencia");
-      // }
+      let resultRef = this.presupost.filter(
+        (element) => element.referencia == this.texteRef
+      );
+      console.log(resultRef);
+    },
+    cercaNom() {
+      let resultNom = this.presupost.filter(
+        (element) => element.client == this.textNom
+      );
+      console.log(resultNom);
     },
   },
-  cercaNom() {},
+
   watch: {},
 };
 </script>
