@@ -91,6 +91,7 @@ export default {
       preu: 0,
       pagines: 0,
       idiomes: 0,
+      contador: 1,
       condition: false,
       trobat: false,
       isCheck: false,
@@ -140,7 +141,7 @@ export default {
     },
     guardar() {
       var i = 0;
-     
+
       var pressupostList = {
         diaHora: this.diaHora,
         referencia: this.referencia,
@@ -149,6 +150,7 @@ export default {
         serveis: this.arrayServei,
         pagines: this.pagines,
         idiomes: this.idiomes,
+        contador: this.contador,
       };
       if (this.arrayServei == 0 && this.client == "" && this.referencia == "") {
         alert(
@@ -166,8 +168,9 @@ export default {
         alert("Introduzca su nombre");
       } else {
         this.arrayPresupost.push(pressupostList),
-          (this.client = ""),
-          (this.referencia = "");
+         this.contador++;
+
+        (this.client = ""), (this.referencia = "");
         this.condition = false;
         this.resetCheck();
       }

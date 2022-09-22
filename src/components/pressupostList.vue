@@ -1,17 +1,24 @@
 <template>
   <div>
     <button class="btn m-1" @click="ordenarAlfabet()">A-Z</button>
-  
+
     <button class="btn m-1" @click="ordenarPreu()">€ +/-</button>
     <button class="btn m-1" @click="ordenarData()">
       <b-icon icon="arrow-repeat"></b-icon>
     </button>
-    <!-- <button class="btn m-1" @click="cercaRef()">
-      <b-icon icon="search"></b-icon>
+    <button class="btn m-1" @click="cercaRef()">
+      <b-icon icon="search"></b-icon>Cerca per referencia
     </button>
-    <button class="btn m-1" @click="cercaNom()"><b-icon></b-icon></button> -->
-
-    <!-- <h4>Llistat de pressupostos:</h4> -->
+    <input
+      v-model="texteRef"
+      id="cercaReferencia"
+      placeholder="Entra una referencia"
+    />
+    <button class="btn m-1" @click="cercaNom()">
+      <b-icon icon="search"></b-icon>Cerca per nom
+    </button>
+    <input type="text" placeholder="Entra un nom" />
+    <h4>Llistat de pressupostos:</h4>
     <hr style="border: solid 1px" />
     <div class="caixa">
       <div class="llistat">
@@ -37,6 +44,8 @@
           <h6>
             Preu: <strong> {{ element.preu }}</strong>
           </h6>
+          <h6>Presupost nº:{{ element.contador }}</h6>
+
           <hr style="border: solid 1px" />
         </div>
       </div>
@@ -47,9 +56,13 @@
 export default {
   name: "presupostList",
   props: ["presupost"],
+
   data() {
     return {
       ordre: [],
+      i: 0,
+      arrayReferencia: [],
+      texteRef: [],
     };
   },
   methods: {
@@ -86,9 +99,29 @@ export default {
         return 0;
       });
     },
-    // cercaRef() {},
-    // cercaNom() {},
+    cercaRef() {
+      
+      let result = this.presupost.filter(element => element.referencia == this.texteRef);
+      console.log(result)
+      
+      // var i = 0;
+      // console.log(this.texteRef);
+      // while (i <= this.presupost.length && !this.trobat) {
+      //   if (this.presupost[i].referencia == this.texteRef) {
+      //     this.trobat = true;
+      //   }
+      //   i++;
+      // }
+      // if (this.trobat == true) {
+      //   this.arrayReferencia.push(this.presupost[i]);
+      //   console.log(this.arrayReferencia);
+      // } else {
+      //   alert("No s ha trobat la referencia");
+      // }
+    },
   },
+  cercaNom() {},
+  watch: {},
 };
 </script>
 <style scoped>
@@ -103,9 +136,7 @@ body {
 .btn {
   background-color: salmon;
   color: white;
-  border: 0;
-  border-radius: 50%;
-  height:55px;
+  height: 40px;
   width: auto;
 }
 </style>
