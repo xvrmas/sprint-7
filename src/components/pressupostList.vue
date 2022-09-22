@@ -4,20 +4,22 @@
 
     <button class="btn m-1" @click="ordenarPreu()">€ +/-</button>
     <button class="btn m-1" @click="ordenarData()">
-      <b-icon icon="arrow-repeat"></b-icon>
-    </button>
+      <b-icon icon="arrow-repeat"></b-icon></button
+    ><br />
     <button class="btn m-1" @click="cercaRef()">
-      <b-icon icon="search"></b-icon>Cerca per referencia
+      <b-icon icon="search"></b-icon>
     </button>
     <input
       v-model="texteRef"
       id="cercaReferencia"
       placeholder="Entra una referencia"
-    />
+    /><br />
     <button class="btn m-1" @click="cercaNom()">
-      <b-icon icon="search"></b-icon>Cerca per nom
+      <b-icon icon="search"></b-icon>
     </button>
     <input type="text" v-model="textNom" placeholder="Entra un nom" />
+    <busqueda :resultRef="resultRef" :resultNom="resultNom"></busqueda>
+
     <h4>Llistat de pressupostos:</h4>
     <hr style="border: solid 1px" />
     <div class="caixa">
@@ -52,8 +54,10 @@
     </div>
   </div>
 </template>
-<script scoped>
+<script >
+import Busqueda from "@/components/Busqueda.vue";
 export default {
+  components: { Busqueda },
   name: "presupostList",
   props: ["presupost"],
 
@@ -64,6 +68,8 @@ export default {
       arrayReferencia: [],
       texteRef: [],
       textNom: [],
+      resultRef: [],
+      resultNom: [],
     };
   },
   methods: {
@@ -101,16 +107,18 @@ export default {
       });
     },
     cercaRef() {
-      let resultRef = this.presupost.filter(
+      this.resultRef = this.presupost.filter(
         (element) => element.referencia == this.texteRef
       );
-      console.log(resultRef);
+      console.log("busqueda referencia", this.resultRef);
+      this.texteRef = "";
     },
     cercaNom() {
-      let resultNom = this.presupost.filter(
+      this.resultNom = this.presupost.filter(
         (element) => element.client == this.textNom
       );
-      console.log(resultNom);
+      console.log("buesqueda nom", this.resultNom);
+      this.textNom = "";
     },
   },
 
