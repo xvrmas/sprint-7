@@ -31,7 +31,7 @@
       <div v-for="element in resultNom" :key="element.id">
         <h6>
           <strong
-            >Amb el nom "{{ element.client }}" tens aquests presupostos:</strong
+            >Amb el nom "{{ element.client }}" tens aquest presupost:</strong
           >
         </h6>
 

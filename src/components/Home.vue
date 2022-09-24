@@ -45,7 +45,7 @@
         <hr style="border: solid 1px" />
         <p>
           Si ho desitgeu podeu desar el pressupost ingressant el nom del client
-        i una referència.
+          i una referència.
         </p>
         <b-form-input
           type="text"
@@ -82,10 +82,12 @@ export default {
       arrayPresupost: [],
       arrayServei: [],
       arrayCheck: [],
+      checkRepeat: [],
       client: "",
       referencia: "",
       textServei: "",
       diaHora: "",
+      valorRef: "",
       resultat: 0,
       counter: 0,
       preu: 0,
@@ -95,6 +97,7 @@ export default {
       condition: false,
       trobat: false,
       isCheck: false,
+      trobatRef: false,
     };
   },
 
@@ -152,6 +155,16 @@ export default {
         idiomes: this.idiomes,
         contador: this.contador,
       };
+      this.checkRepeat = this.arrayPresupost.map(
+        (element) => element.referencia
+      );
+      console.log(this.checkRepeat);
+      for (this.valorRef of this.checkRepeat) {
+        if (this.valorRef == this.referencia) {
+          this.trobatRef = true;
+        }
+      }
+
       if (this.arrayServei == 0 && this.client == "" && this.referencia == "") {
         alert(
           "No se puede guardar un presupuesto vacio.Elija un servicio y rellene los campos referencia y nombre"
@@ -166,14 +179,20 @@ export default {
         alert("Introduzca una referencia");
       } else if (this.client == "") {
         alert("Introduzca su nombre");
+      } else if (this.trobatRef == true) {
+        alert(
+          "Ja existeix un presupost amb aquest nom de referencia,trian un altre"
+        );
+        this.referencia = "";
+        this.trobatRef = false;
       } else {
-        this.arrayPresupost.push(pressupostList),
-         this.contador++;
+        this.arrayPresupost.push(pressupostList), this.contador++;
 
         (this.client = ""), (this.referencia = "");
         this.condition = false;
         this.resetCheck();
       }
+
       return this.arrayPresupost;
     },
 
