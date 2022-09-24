@@ -44,7 +44,8 @@
       <div>
         <hr style="border: solid 1px" />
         <p>
-          Si ho desitgeu podeu desar el pressupost ingressant el nom del client i una referència.
+          Si ho desitgeu podeu desar el pressupost ingressant el nom del client
+        i una referència.
         </p>
         <b-form-input
           type="text"

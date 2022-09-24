@@ -34,15 +34,15 @@
           <h6>
             serveis: <strong> {{ element.serveis + "" }}</strong>
           </h6>
-          <!-- <h6>
+          <h6>
             Nº de pagines:<strong>{{ element.pagines }}</strong>
           </h6>
           <h6>
             Idiomes:<strong>{{ element.idiomes }}</strong>
-          </h6> -->
-          <!-- <h6>
+          </h6>
+          <h6>
             Data del presupost: <strong>{{ element.diaHora }}</strong>
-          </h6> -->
+          </h6>
           <h6>
             Preu: <strong> {{ element.preu }}</strong>
           </h6>
@@ -110,14 +110,12 @@ export default {
       this.resultRef = this.presupost.filter(
         (element) => element.referencia == this.texteRef
       );
-      console.log("busqueda referencia", this.resultRef);
       this.texteRef = "";
     },
     cercaNom() {
       this.resultNom = this.presupost.filter(
         (element) => element.client == this.textNom
       );
-      console.log("buesqueda nom", this.resultNom);
       this.textNom = "";
     },
   },

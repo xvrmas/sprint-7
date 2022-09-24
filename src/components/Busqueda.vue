@@ -6,8 +6,8 @@
         <div v-for="element in resultRef" :key="element.id">
           <h6>
             <strong
-              >Per la referencia "{{ element.referencia }}" tens aquests
-              presupostos:</strong
+              >Amb la referencia "{{ element.referencia }}" tens aquest
+              presupost:</strong
             >
           </h6>
           <h6>
@@ -35,7 +35,6 @@
           >
         </h6>
 
-        <h6><strong>busqueda per nom:</strong></h6>
         <h6>
           Nom del presupost:<strong> {{ element.referencia }}</strong>
         </h6>
@@ -64,11 +63,6 @@ export default {
     return {
       condition: false,
     };
-  },
-  methods: {
-    neteja() {
-      (this.resultNom = []), (this.resultRef = []);
-    },
   },
 };
 </script>
