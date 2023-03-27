@@ -167,21 +167,21 @@ export default {
 
       if (this.arrayServei == 0 && this.client == "" && this.referencia == "") {
         alert(
-          "No se puede guardar un presupuesto vacio.Elija un servicio y rellene los campos referencia y nombre"
+          "An empty budget cannot be saved. Choose a service and fill in the reference and name fields"
         );
       } else if (this.arrayServei.length == 0) {
         alert(
-          "Para guardar un presupuesto primero debe elegir almenos un servicio"
+          "To save a quote you must first choose at least one service"
         );
       } else if (this.client == "" && this.referencia == "") {
-        alert("Los campos 'referencia' y 'nombre' no pueden estar vacios");
+        alert("The fields 'reference' and 'name' cannot be empty");
       } else if (this.referencia == "") {
-        alert("Introduzca una referencia");
+        alert("Enter a reference");
       } else if (this.client == "") {
-        alert("Introduzca su nombre");
+        alert("Enter your name");
       } else if (this.trobatRef == true) {
         alert(
-          "Ja existeix un presupost amb aquest nom de referencia,trian un altre"
+          "There is already a budget with this reference name, choose another one"
         );
         this.referencia = "";
         this.trobatRef = false;
