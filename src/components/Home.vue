@@ -61,7 +61,7 @@
           maxlength="25"
         ></b-form-input>
         <button class="btn m-1" @click="guardar()">Save</button>
-        <button class="btn m-1" @click="Home">Start</button>
+        <button class="btn m-1" @click="Home">Home</button>
       </div>
     </div>
     <div class="presupost">
