@@ -12,41 +12,41 @@
     <input
       v-model="texteRef"
       id="cercaReferencia"
-      placeholder="Entra una referencia"
+      placeholder="Enter a reference"
     /><br />
     <button class="btn m-1" @click="cercaNom()">
       <b-icon icon="search"></b-icon>
     </button>
-    <input type="text" v-model="textNom" placeholder="Entra un nom" />
+    <input type="text" v-model="textNom" placeholder="Enter a name" />
     <busqueda :resultRef="resultRef" :resultNom="resultNom"></busqueda>
 
-    <h4>Llistat de pressupostos:</h4>
+    <h4>List of budgets:</h4>
     <hr style="border: solid 1px" />
     <div class="caixa">
       <div class="llistat">
         <div v-for="element in presupost" :key="element.id">
           <h6>
-            Nom del presupost:<strong> {{ element.referencia }}</strong>
+            Budget Name:<strong> {{ element.referencia }}</strong>
           </h6>
           <h6>
-            Client: <strong>{{ element.client }}</strong>
+            Customer: <strong>{{ element.client }}</strong>
           </h6>
           <h6>
-            serveis: <strong> {{ element.serveis + "" }}</strong>
+            services: <strong> {{ element.serveis + "" }}</strong>
           </h6>
           <h6>
-            Nº de pagines:<strong>{{ element.pagines }}</strong>
+            Number of pages:<strong>{{ element.pagines }}</strong>
           </h6>
           <h6>
-            Idiomes:<strong>{{ element.idiomes }}</strong>
+            Languages:<strong>{{ element.idiomes }}</strong>
           </h6>
           <h6>
-            Data del presupost: <strong>{{ element.diaHora }}</strong>
+            Budget date: <strong>{{ element.diaHora }}</strong>
           </h6>
           <h6>
-            Preu: <strong> {{ element.preu }}</strong>
+            Price: <strong> {{ element.preu }}</strong>
           </h6>
-          <h6>Presupost nº:{{ element.contador }}</h6>
+          <h6>Budget nº:{{ element.contador }}</h6>
 
           <hr style="border: solid 1px" />
         </div>

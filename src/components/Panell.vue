@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div class="carta" v-if="condition">
-      Número de páginas
-      <b-button
+    <div class="carta" v-if="condition">Number of pages<b-button
         style="
           background-color: salmon;
           font-family: Times New Roman;
@@ -27,13 +25,13 @@
       <b-button class="btn-modal" v-b-modal.modal-center1 rounded> i</b-button>
       <b-modal id="modal-center1" centered hide-footer hide-header>
         <p class="my-4">
-          En este componente debe indicar el número de páginas que tendrá su
-          sitio web
+          In this component you must indicate the number of pages you will have
+          website
         </p>
       </b-modal>
 
       <br /><br />
-      Número de idiomas
+      Number of langs
       <b-button
         style="
           background-color: salmon;
@@ -58,8 +56,8 @@
       <b-button class="btn-modal" v-b-modal.modal-center2>i</b-button>
       <b-modal id="modal-center2" centered hide-footer hide-header>
         <p class="my-4">
-          En este componente debe indicar el número de idiomas que tendrá su
-          sitio web
+          In this component you must indicate the number of languages ​​you will have
+          website
         </p>
       </b-modal>
     </div>

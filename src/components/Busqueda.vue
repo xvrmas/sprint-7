@@ -6,24 +6,24 @@
         <div v-for="element in resultRef" :key="element.id">
           <h6>
             <strong
-              >Amb la referencia "{{ element.referencia }}" tens aquest
-              presupost:</strong
+              >With the reference "{{ element.referencia }}" you have this one
+              budget:</strong
             >
           </h6>
           <h6>
-            Nom del presupost:<strong> '{{ element.referencia }}''</strong>
+            Budget Name:<strong> '{{ element.referencia }}''</strong>
           </h6>
           <h6>
-            Client: <strong>{{ element.client }}</strong>
+            Customer: <strong>{{ element.client }}</strong>
           </h6>
           <h6>
-            serveis: <strong> {{ element.serveis + "" }}</strong>
+            Services: <strong> {{ element.serveis + "" }}</strong>
           </h6>
 
           <h6>
-            Preu: <strong> {{ element.preu }}</strong>
+            Price: <strong> {{ element.preu }}</strong>
           </h6>
-          <h6>Presupost nº:{{ element.contador }}</h6>
+          <h6>Budget nº:{{ element.contador }}</h6>
 
           <hr style="border: solid 1px" />
         </div>
@@ -31,24 +31,24 @@
       <div v-for="element in resultNom" :key="element.id">
         <h6>
           <strong
-            >Amb el nom "{{ element.client }}" tens aquest presupost:</strong
+            >With the name  "{{ element.client }}" you have this budget:</strong
           >
         </h6>
 
         <h6>
-          Nom del presupost:<strong> {{ element.referencia }}</strong>
+          <strong> {{ element.referencia }}</strong>Budget Name:
         </h6>
         <h6>
-          Client: <strong>{{ element.client }}</strong>
+          Customer: <strong>{{ element.client }}</strong>
         </h6>
         <h6>
-          serveis: <strong> {{ element.serveis + "" }}</strong>
+          Services: <strong> {{ element.serveis + "" }}</strong>
         </h6>
 
         <h6>
-          Preu: <strong> {{ element.preu }}</strong>
+          Price: <strong> {{ element.preu }}</strong>
         </h6>
-        <h6>Presupost nº:{{ element.contador }}</h6>
+        <h6>Budget nº:{{ element.contador }}</h6>
 
         <hr style="border: solid 1px" />
       </div>

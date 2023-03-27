@@ -1,16 +1,16 @@
 <template>
   <div class="contenidor">
     <div class="home ml-4">
-      <h4>¿Qué quieres hacer?</h4>
+      <h4>What do you want to do?</h4>
       <div class="mt-3">
         <b-form-checkbox
           class="check"
           v-model="selected"
           @change="
-            showPanel(), clicat('Una pàgina web'), updateCheck(), diaHoraPresu()
+            showPanel(), clicat('A web page'), updateCheck(), diaHoraPresu()
           "
           :value="500"
-          >Una pàgina web (500 €)</b-form-checkbox
+          >A web page (500 €)</b-form-checkbox
         >
         <panell
           :selected="selected"
@@ -22,46 +22,46 @@
 
         <b-form-checkbox
           class="check"
-          @change="clicat('Una consultoria SEO'), updateCheck(), diaHoraPresu()"
+          @change="clicat('An SEO consultancy'), updateCheck(), diaHoraPresu()"
           v-model="selected"
           :value="300"
-          >Una consultoria SEO (300 €)</b-form-checkbox
+          >An SEO consultancy (300 €)</b-form-checkbox
         >
         <b-form-checkbox
           class="check"
           @change="
-            clicat('Una campanya de Google Ads'), updateCheck(), diaHoraPresu()
+            clicat('A Google Ads campaign'), updateCheck(), diaHoraPresu()
           "
           v-model="selected"
           :value="200"
-          >Una campanya de Google Ads (200 €)</b-form-checkbox
+          >A Google Ads campaign (200 €)</b-form-checkbox
         >
         <div>
           <br />
-          <h5>Preu:{{ resultat }} €</h5>
+          <h5>Price:{{ resultat }} €</h5>
         </div>
       </div>
       <div>
         <hr style="border: solid 1px" />
         <p>
-          Si ho desitgeu podeu desar el pressupost ingressant el nom del client
-          i una referència.
+          If you wish, you can save the estimate by entering the customer's name
+          and a reference.
         </p>
         <b-form-input
           type="text"
           v-model="referencia"
-          placeholder="Referencia del presupuesto, maximo 5 caracteres"
+          placeholder="Budget reference, maximum 5 characters"
           maxlength="5"
         ></b-form-input>
         <b-form-input
           type="text"
           class="mt-3 mb-4"
           v-model="client"
-          placeholder="Nombre del cliente"
+          placeholder="Customer number"
           maxlength="25"
         ></b-form-input>
-        <button class="btn m-1" @click="guardar()">Guardar</button>
-        <button class="btn m-1" @click="Home">Inicio</button>
+        <button class="btn m-1" @click="guardar()">Save</button>
+        <button class="btn m-1" @click="Home">Start</button>
       </div>
     </div>
     <div class="presupost">

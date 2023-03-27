@@ -7,15 +7,15 @@
       <div class="card px-4 mb-3 shadow">
         <div class="card-body px-3 p-4">
           <div class="text-center">
-            <h3>¿Que quieres hacer?</h3>
-            <h4 class="fw-bolder">¿Una pagina web, una consultoría SEO o una campanya de Google Ads? </h4>
-            <h5>En "obtener presupuesto" podrás seleccionar las opciones que se adapten a tus necesidades"</h5>
+            <h3>What do you want to do?</h3>
+            <h4 class="fw-bolder">A website, an SEO consultancy or a Google Ads campaign? </h4>
+            <h5>By "getting a quote" you can select the options that suit your needs"</h5>
             <h4></h4>
           </div>
         </div>
       </div>
         </div>
-    <button class="btn" @click="Calculadora">Obtener presupuesto</button>
+    <button class="btn" @click="Calculadora">Get quote</button>
   </div>
 </template>
 
